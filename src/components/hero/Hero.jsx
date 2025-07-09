@@ -8,10 +8,12 @@ const Hero = () => {
   const [job, setJob] = useState('');
   const [data, setData] = useState([]);
 
-  const handleChange = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!name.trim()) return null;
     if (!age.trim()) return null;
     if (!job.trim()) return null;
+
     const info = {
       id: new Date().getTime(),
       name,
@@ -30,8 +32,12 @@ const Hero = () => {
   return (
     <>
       <div className="container mx-auto px-3 my-10">
-        <div className="max-w-[400px] w-full flex flex-col block mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-[400px] w-full flex flex-col block mx-auto"
+        >
           <input
+            required
             onChange={(e) => setName(e.target.value)}
             value={name}
             type="text"
@@ -39,6 +45,7 @@ const Hero = () => {
             className="border w-full outline-0 focus:border-green-500 hover:border-green-500 focus:outline-2 outline-green-400 duration-150 py-3 rounded-2xl text-lg font-semibold indent-5 my-3"
           />
           <input
+            required
             onChange={(e) => setAge(e.target.value)}
             value={age}
             type="number"
@@ -46,20 +53,20 @@ const Hero = () => {
             className="border w-full outline-0 focus:border-green-500 hover:border-green-500 focus:outline-2 outline-green-400 duration-150 py-3 rounded-2xl text-lg font-semibold indent-5 my-3"
           />
           <input
+            required
             onChange={(e) => setJob(e.target.value)}
             value={job}
             type="text"
             placeholder="Job..."
             className="border w-full outline-0 focus:border-green-500 hover:border-green-500 focus:outline-2 outline-green-400 duration-150 py-3 rounded-2xl text-lg font-semibold indent-5 my-3"
           />
-        </div>
-        <button
-          onClick={handleChange}
-          type="button"
-          className="w-[200px] py-2.5 rounded-2xl bg-green-500 block mx-auto text-white hover:bg-white hover:outline hover:outline-green-500 hover:text-green-500 duration-150 cursor-pointer"
-        >
-          Submit
-        </button>
+          <button
+            type="submit"
+            className="w-[200px] py-2.5 rounded-2xl bg-green-500 block mx-auto text-white hover:bg-white hover:outline hover:outline-green-500 hover:text-green-500 duration-150 cursor-pointer"
+          >
+            Submit
+          </button>
+        </form>
         <div className="container p-6 mx-auto my-5 px-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {data?.map((e) => (
             <article
