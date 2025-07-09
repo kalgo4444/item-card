@@ -24,7 +24,6 @@ const Hero = () => {
     setAge('');
     setJob('');
   };
-  console.log(data);
 
   return (
     <>
@@ -59,10 +58,7 @@ const Hero = () => {
         >
           Submit
         </button>
-        <h1 className="my-3 text-3xl font-semibold text-center">
-          Simple add item using top inputs
-        </h1>
-        <div className="container border-2 p-6 mx-auto my-5 px-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="container p-6 mx-auto my-5 px-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {data?.map((e) => (
             <article
               className="border-2 rounded-2xl p-5 text-center text-2xl font-semibold shadow-xl shadow-gray-500/10 hover:shadow-gray-500/20 duration-150"
