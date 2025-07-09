@@ -9,6 +9,9 @@ const Headerbutton = () => {
   const [data, setData] = useState([]);
 
   const handleChange = () => {
+    if (!name.trim()) return null;
+    if (!age.trim()) return null;
+    if (!job.trim()) return null;
     const info = {
       id: new Date().getTime(),
       name,
