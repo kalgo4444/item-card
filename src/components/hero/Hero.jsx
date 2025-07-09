@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import image from '../../assets/images/title.svg';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Hero = () => {
   const [name, setName] = useState('');
@@ -19,6 +20,7 @@ const Hero = () => {
     };
 
     setData([...data, info]);
+    toast.success('Info added');
 
     setName('');
     setAge('');
@@ -78,6 +80,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };
